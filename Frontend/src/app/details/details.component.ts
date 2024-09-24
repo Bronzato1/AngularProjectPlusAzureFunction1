@@ -12,11 +12,11 @@ export class DetailsComponent implements OnInit {
   
   userName$!: Observable<string>;
 
-  constructor (public oktaAuth: OktaAuthStateService) { }
+  constructor (public oktaAuthStateService: OktaAuthStateService) { }
 
   async ngOnInit() 
   {
-    this.userName$ = this.oktaAuth.authState$.pipe(
+    this.userName$ = this.oktaAuthStateService.authState$.pipe(
       filter((authState: AuthState) => !!authState && !!authState.isAuthenticated),
       map((authState: AuthState) => authState.idToken?.claims.name ?? '')
     );    

@@ -1,17 +1,27 @@
 <div class="page-header pt-3">
     <h2>Dashboard</h2>
 </div>
-<p class="lead">This is the leading paragraph</p>
+<p class="lead">This page is not secured.</p>
 <hr>
 <div class="row">
     <div class="col-12">
         <p>
             Content of the dashboard goes here.
         </p>
-        <p class="fw-bold">
-            This component is not protected.
-        </p>
+        
         <a [routerLink]="['/details']"> Click here to navigate to the Details (secured) page </a>
+
+        <br/>
+        <br/>
+
+        <a [routerLink]="['/playground']"> Click here to navigate to the Playground (not secured) page </a>
+
+        <br/>
+        <br/>
+
+        <button (click)="callBackend()">Call backend</button>
+
+
     </div>
 </div>
 

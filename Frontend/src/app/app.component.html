@@ -113,14 +113,16 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        <li>
+                            <a class="dropdown-item" href="javascript:void(0)" *ngIf="isAuthenticated" (click)="logout()">
+                            <span *ngIf="userName$ | async as theUser"> Sign out {{ theUser }}</span>
+                        </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
         <main class="col ps-md-2 pt-2">
-            <button *ngIf="isAuthenticated" (click)="logout()">Logout</button>
-            <button (click)="callBackend()">Call backend</button>
             <router-outlet></router-outlet>            
         </main>
     </div>
