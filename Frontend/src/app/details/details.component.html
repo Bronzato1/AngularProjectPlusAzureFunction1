@@ -1,8 +1,14 @@
-<p>details works!</p>
-
-<p>This page is secured</p>
-
-<p *ngIf="userName$ | async as theUser">
-    Hello {{ theUser }}!
-</p>
+<div class="page-header pt-3">
+    <h2>Details</h2>
+</div>
+<p class="lead">This page is secured</p>
+<hr>
+<div class="row">
+    <div class="col-12">
+        <p>Content goes here for the details page. This page is secured</p>
+        <p *ngIf="userName$ | async as theUser">
+            Hello {{ theUser }}!
+        </p>
+    </div>
+</div>
 

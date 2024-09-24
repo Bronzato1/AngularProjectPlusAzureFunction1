@@ -2,11 +2,14 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { DataService } from './data.service';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit
 {
@@ -17,7 +20,8 @@ export class AppComponent implements OnInit
   constructor(
     private dataService: DataService, 
     @Inject(OKTA_AUTH) public oktaAuth: OktaAuth,
-    private authStateService: OktaAuthStateService
+    private authStateService: OktaAuthStateService,
+    private modalService: NgbModal
   ) { }
 
   async ngOnInit()
@@ -28,6 +32,10 @@ export class AppComponent implements OnInit
           this.isAuthenticated = response.isAuthenticated ?? false;
       }
     );    
+  }
+
+  public open(modal: any): void {
+    this.modalService.open(modal);
   }
 
   login()

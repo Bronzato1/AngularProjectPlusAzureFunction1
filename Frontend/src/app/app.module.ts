@@ -10,6 +10,7 @@ import { environment } from "../environments/environment";
 import { OktaAuthModule, OktaConfig, OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { PlaygroundComponent } from './playground/playground.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const authConfig = {
   issuer: `https://${environment.devOktaDomain}/oauth2/default`,
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     AppRoutingModule,
     OktaAuthModule.forRoot(moduleConfig),
     RouterModule.forRoot(appRoutes)

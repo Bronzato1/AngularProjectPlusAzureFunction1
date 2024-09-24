@@ -1,11 +1,19 @@
-<p>playground works!</p>
+<div class="page-header pt-3">
+    <h2>Playground</h2>
+</div>
+<p class="lead">This page is secured</p>
+<hr>
+<div class="row">
+    <div class="col-12">
+        <p *ngIf="test1$ | async as myFirstTest">
+            Test 1:  <b> {{ myFirstTest }} </b> !
+        </p>
+        
+        <p *ngIf="test2$ | async as mySecondTest">
+            Test 2: <b> {{ mySecondTest }} </b> !
+        </p>
+        
+        <p> Value 1: <b> {{ value1 }} </b> !</p>
+    </div>
+</div>
 
-<p *ngIf="test1$ | async as myFirstTest">
-    Test 1:  <b> {{ myFirstTest }} </b> !
-</p>
-
-<p *ngIf="test2$ | async as mySecondTest">
-    Test 2: <b> {{ mySecondTest }} </b> !
-</p>
-
-<p> Value 1: <b> {{ value1 }} </b> !</p>
