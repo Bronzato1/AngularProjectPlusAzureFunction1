@@ -1,0 +1,182 @@
+<div
+    class="sidebar-area bg-white transition"
+    [ngClass]="{'active': isSidebarToggled}"
+    [class.card-borderd]="themeService.isCardBordered()"
+    [class.dark-sidebar]="themeService.isSidebarDark()"
+    [class.hide-sidebar]="themeService.isHideSidebar()"
+    [class.component-dark-theme]="themeService.isDark()"
+    [class.right-sidebar]="themeService.isRightSidebar()"
+    [class.component-rtl-enabled]="themeService.isRTLEnabled()"
+    [class.card-with-box-shadow]="themeService.isCardWithBoxShadow()"
+>
+    <div class="logo bg-white">
+        <a routerLink="/dashboard" class="d-flex align-items-center position-relative">
+            <img src="images/logo-icon.svg" alt="logo-icon">
+            <span class="fw-bold text-black position-relative">
+                Appli 321
+            </span>
+        </a>
+    </div>
+    <div
+        (click)="toggle()"
+        class="burger-menu transition"
+        [ngClass]="{'active': isSidebarToggled}"
+    >
+        <span class="top-bar transition d-block bg-black"></span>
+        <span class="middle-bar transition d-block bg-black"></span>
+        <span class="bottom-bar transition d-block bg-black"></span>
+    </div>
+    <ng-scrollbar visibility="hover">
+        <div class="sidebar-inner">
+            <div class="sidebar-menu">
+                <div class="accordion">
+                    <span class="sub-title d-block fw-medium text-uppercase">
+                        MAIN
+                    </span>
+                    <div class="accordion-item border-radius border-0">
+                        <button
+                            type="button"
+                            (click)="toggleSection(0)"
+                            [ngClass]="{ 'open': isSectionOpen(0) }"
+                            class="accordion-button d-block text-start shadow-none fw-medium border-0 transition border-radius"
+                        >
+                            <i class="material-symbols-outlined">
+                                dashboard
+                            </i>
+                            <span class="title">
+                                Dashboard
+                            </span>
+                            <span class="zzz-badge rounded-circle fw-medium d-inline-block text-center">
+                                3
+                            </span>
+                        </button>
+                        <div class="accordion-collapse" [ngClass]="{ 'open': isSectionOpen(0) }">
+                            <div class="accordion-body">
+                                <ul class="sidebar-sub-menu p-0 list-unstyled mb-0">
+                                    <li class="sidemenu-item">
+                                        <a routerLink="/dashboard/test-page" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link border-radius d-block position-relative transition fw-medium">
+                                            Test page
+                                        </a>
+                                    </li>
+                                    <li class="sidemenu-item">
+                                        <a routerLink="/dashboard/secured-page" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link border-radius d-block position-relative transition fw-medium">
+                                            Secured page
+                                            <span class="zzz-badge d-inline-block position-relative">
+                                                VIP
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidemenu-item">
+                                        <a routerLink="/dashboard/blank-page" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link border-radius d-block position-relative transition fw-medium">
+                                            Blank page
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-radius border-0">
+                        <button
+                            type="button"
+                            (click)="toggleSection(1)"
+                            [ngClass]="{ 'open': isSectionOpen(1) }"
+                            class="accordion-button d-block text-start shadow-none fw-medium border-0 transition border-radius"
+                        >
+                            <i class="material-symbols-outlined">
+                                note_stack
+                            </i>
+                            <span class="title">
+                                Front Pages
+                            </span>
+                        </button>
+                        <div class="accordion-collapse" [ngClass]="{ 'open': isSectionOpen(1) }">
+                            <div class="accordion-body">
+                                <ul class="sidebar-sub-menu p-0 list-unstyled mb-0">
+                                    <li class="sidemenu-item">
+                                        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link border-radius d-block position-relative transition fw-medium">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li class="sidemenu-item">
+                                        <a routerLink="/features" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link border-radius d-block position-relative transition fw-medium">
+                                            Features
+                                        </a>
+                                    </li>
+                                    <li class="sidemenu-item">
+                                        <a routerLink="/team" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link border-radius d-block position-relative transition fw-medium">
+                                            Our Team
+                                        </a>
+                                    </li>
+                                    <li class="sidemenu-item">
+                                        <a routerLink="/faq" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link border-radius d-block position-relative transition fw-medium">
+                                            FAQ’s
+                                        </a>
+                                    </li>
+                                    <li class="sidemenu-item">
+                                        <a routerLink="/contact" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="sidemenu-link border-radius d-block position-relative transition fw-medium">
+                                            Contact
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="sub-title d-block fw-medium text-uppercase">
+                        APPS
+                    </span>
+                    <div class="accordion-item border-radius border-0">
+                        <a routerLink="/dashboard/apps" class="sidebar-menu-link d-block w-100 position-relative border-radius fw-medium transition" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="material-symbols-outlined">
+                                format_list_bulleted
+                            </i>
+                            <span class="title">
+                                First app
+                            </span>
+                        </a>
+                    </div>
+                    <div class="accordion-item border-radius border-0">
+                        <a routerLink="/dashboard/apps/calendar" class="sidebar-menu-link d-block w-100 position-relative border-radius fw-medium transition" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="material-symbols-outlined">
+                                date_range
+                            </i>
+                            <span class="title">
+                                Second app
+                            </span>
+                        </a>
+                    </div>
+                    <div class="accordion-item border-radius border-0">
+                        <a routerLink="/dashboard/apps/contacts" class="sidebar-menu-link d-block w-100 position-relative border-radius fw-medium transition" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="material-symbols-outlined">
+                                contact_page
+                            </i>
+                            <span class="title">
+                                Third app
+                            </span>
+                        </a>
+                    </div>
+                    <span class="sub-title d-block fw-medium text-uppercase">
+                        OTHERS
+                    </span>
+                    <div class="accordion-item border-radius border-0">
+                        <a href="javascript: void(0)" *ngIf="!isAuthenticated" (click)="login()" class="sidebar-menu-link d-block w-100 position-relative border-radius fw-medium transition" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="material-symbols-outlined">
+                                login
+                            </i>
+                            <span class="title">
+                                Login
+                            </span>
+                        </a>
+                        <a href="javascript: void(0)" *ngIf="isAuthenticated" (click)="logout()" class="sidebar-menu-link d-block w-100 position-relative border-radius fw-medium transition" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                            <i class="material-symbols-outlined">
+                                logout
+                            </i>
+                            <span class="title">
+                                Logout
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-scrollbar>
+</div>

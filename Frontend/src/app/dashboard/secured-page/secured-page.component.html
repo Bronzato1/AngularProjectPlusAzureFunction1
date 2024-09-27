@@ -1,0 +1,14 @@
+<!-- Title -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        Secured page
+    </h5>
+</div>
+<!-- Content -->
+<div class="row">
+    <div class="col-12">
+        <p *ngIf="userName$ | async as theUser">
+            Hello {{ theUser }}!
+        </p>
+    </div>
+</div>

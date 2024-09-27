@@ -183,7 +183,6 @@ export class AppComponent implements OnInit
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     this.oktaAuth.authStateManager.subscribe( 
           (handler: AuthState) => this.isAuthenticated = handler.isAuthenticated ?? false );
-    );
   }
 
   login()

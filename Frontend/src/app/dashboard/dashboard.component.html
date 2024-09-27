@@ -1,27 +1,33 @@
-<div class="page-header pt-3">
-    <h2>Dashboard</h2>
-</div>
-<p class="lead">This page is not secured.</p>
-<hr>
-<div class="row">
-    <div class="col-12">
-        <p>
-            Content of the dashboard goes here.
-        </p>
-        
-        <a [routerLink]="['/details']"> Click here to navigate to the Details (secured) page </a>
+<div
+    [class.card-borderd]="themeService.isCardBordered()"
+    [class.card-with-box-shadow]="themeService.isCardWithBoxShadow()"
+    [class.card-without-border-radius]="themeService.isCardWithoutBorderRadius()"
+>
 
-        <br/>
-        <br/>
-
-        <a [routerLink]="['/playground']"> Click here to navigate to the Playground (not secured) page </a>
-
-        <br/>
-        <br/>
-
-        <button (click)="callBackend()">Call backend</button>
-
-
+    <!-- Sidebar -->
+    <app-sidebar />
+    
+    <!-- Main Content -->
+    <div
+        [class.right-sidebar]="themeService.isRightSidebar()"
+        [class.hide-sidebar]="themeService.isHideSidebar()"
+        class="main-content transition d-flex flex-column"
+        [ngClass]="{'active': isSidebarToggled}"
+    >
+    
+        <!-- Header -->
+        <app-header />
+    
+        <!-- Router Outlet -->
+        <router-outlet />
+    
+        <div class="flex-grow-1"></div>
+    
+        <!-- Footer -->
+        <app-footer />
+    
     </div>
-</div>
+    
+    <app-customizer-settings />
 
+</div>
