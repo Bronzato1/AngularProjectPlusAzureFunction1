@@ -141,3 +141,51 @@ You will notice that a new firewall rule has been created
 <div style="display: flex; justify-content: left; padding: 10px;">
   <img src=".images/azure-sql-database-firewall-rule-created.webp" style="width: 73%; height: 73%;">
 </div>
+
+> Now, it’s time to create a DbContext to connect to the Database. To accomplish this, follow the steps in Visual Studio Code
+
+In order to use Entity Framework and connect to the database, we have to install the following packages:
+
+- Microsoft.EntityFrameworkCore
+- Microsoft.EntityFrameworkCore.Design
+- Microsoft.EntityFrameworkCore.Relational
+- Microsoft.EntityFrameworkCore.SqlServer
+- Microsoft.EntityFrameworkCore.Tools
+
+## How to install packages from Visual Studio Code:
+
+### 1st solution: From the command line or the terminal windows in VS Code editor:
+
+```
+dotnet add <PROJECT> package <PACKAGE_NAME> [options]
+Example:
+dotnet add MyApp package MySql.Data -Version 8.0.31
+```
+
+### 2nd solution: You can use the NuGet functionality integrated in Visual Studio Code
+
+To add a package:
+
+- Press `F1` or Ctrl+Shift+P, and type >nuget and press Enter. 
+- Type a part of your package's name as search string. 
+- Choose the package. 
+- And finally the package version (you probably want the newest one).
+
+### What next ?
+
+- After adding the packages, create a folder named *Context* and another one *Models*
+
+> Environment variables are not accessible when executing instructions from the terminal. So this is needed to manually set them like below.
+
+- In the terminal: *$env:AZURE_FUNCTIONS_ENVIRONMENT='Development'*
+- In the terminal: *$env:ConnectionStrings:SQLConnectionString="Server=tcp:one-plus-one.database.windows.net,1433;Initial Catalog=one-plus-one_db;Persist Security Info=False;User ID=admin-test;Password=C0mplexPwd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"*
+- In the terminal: *dotnet ef migrations add InitialCreate*
+
+> *Migrations* folder will be created automatically. 
+
+- In the terminal: *dotnet ef database update*
+
+At this stage, the database is created.
+
+
+

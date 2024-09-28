@@ -8,11 +8,19 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Backend;
+using FunctionApp1.Interfaces;
 
 namespace FunctionApp1
 {
-    public static class Function1
+    public class Function1
     {
+        private readonly IUserService _userService;
+
+        public Function1(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         [FunctionName("Function1")]
         public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, ILogger log)
         {
@@ -42,6 +50,18 @@ namespace FunctionApp1
 				var msg = new Message { Data = "Seed is Working!" };
 				return new OkObjectResult(msg);
 			});
+		}
+
+        [FunctionName("GetUsers")]
+		public async Task<IActionResult> GetUsers([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "users")] HttpRequest req, ILogger log)
+		{
+            Console.WriteLine("┌───────────────────────┐");
+            Console.WriteLine("│ ██ Function1.GetUsers │");
+            Console.WriteLine("└───────────────────────┘");
+
+			log.LogInformation(">>> Called GetUsers with GET request");
+
+			return new OkObjectResult(await _userService.GetAllUsers());
 		}
 	}
 }
