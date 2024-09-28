@@ -400,7 +400,7 @@
   color: var(--whiteColor) !important;
 }
 ::ng-deep .header-area.dark-header.bg-white, ::ng-deep .header-area.dark-header .bg-white {
-  background-color: #0C1427 !important;
+  background-color: #2F3349 !important;
 }
 ::ng-deep .header-area.dark-header .bg-black {
   background-color: var(--whiteColor) !important;

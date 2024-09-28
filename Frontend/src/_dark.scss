@@ -1,5 +1,11 @@
+//////////////////////////////////////
+/// I Made the adjustements below: ///
+/// - changed #25293C with #25293C ///
+/// - changed #2F3349 with #2F3349 ///
+//////////////////////////////////////
+
 .dark-theme {
-    background-color: #0A0E19;
+    background-color:  #25293C;
     --borderColor: #172036;
     color: var(--bodyColor);
     --bodyColor: #8695AA;
@@ -17,7 +23,7 @@
 
     // Color
     .bg-white {
-        background-color: #0C1427 !important;
+        background-color: #2F3349 !important; 
     }
     .text-black {
         color: var(--whiteColor) !important;
@@ -49,7 +55,7 @@
             .zzz-card-subtitle {
                 .menu-btn {
                     &:hover {
-                        background-color: #0A0E19 !important;
+                        background-color: #25293C !important;
                     }
                 }
                 .search-box {
@@ -104,7 +110,7 @@
         }
     }
     .card {
-        --bs-card-bg: #0C1427;
+        --bs-card-bg: #2F3349;
     }
 
     // NG Scrollbar
@@ -123,7 +129,7 @@
                 box-shadow: unset;
 
                 .apexcharts-tooltip-title {
-                    background: #0C1427;
+                    background: #2F3349;
                     color: var(--whiteColor);
                 }
             }
@@ -147,7 +153,7 @@
 
             .apexcharts-menu-item {
                 &:hover {
-                    background: #0A0E19;
+                    background: #25293C;
                 }
             }
         }
@@ -180,7 +186,7 @@
             }
         }
         .apexcharts-pie-area {
-            stroke: #0C1427;
+            stroke: #2F3349;
         }
         .apexcharts-yaxis, .apexcharts-grid-borders {
             line {
@@ -198,7 +204,7 @@
         .apexcharts-radar-series {
             &.apexcharts-plot-series {
                 line, polygon {
-                    fill: #0C1427;
+                    fill: #2F3349;
                     stroke: var(--borderColor);
                 }
                 polygon {
@@ -233,13 +239,13 @@
 
                         .assignees {
                             div {
-                                border-color: #0C1427;
+                                border-color: #2F3349;
                             }
                         }
                         .group-lesson {
                             .users {
                                 div {
-                                    border-color: #0C1427;
+                                    border-color: #2F3349;
                                 }
                             }
                         }
@@ -253,7 +259,7 @@
             background-color: #15203c;
         }
         &::-webkit-scrollbar-track {
-            background-color: #0A0E19;
+            background-color: #25293C;
         }
     }
 
@@ -318,7 +324,7 @@
         }
         &[type=file] {
             &::file-selector-button {
-                background-color: #0A0E19 !important;
+                background-color: #25293C !important;
                 color: var(--whiteColor);
             }
         }
@@ -336,7 +342,7 @@
 
     // Ngx Editor
     .NgxEditor__Wrapper {
-        --ngx-editor-popup-bg-color: #0C1427;
+        --ngx-editor-popup-bg-color: #2F3349;
         border-color: var(--borderColor) !important;
     
         .NgxEditor__MenuBar {
@@ -362,7 +368,7 @@
             .NgxEditor__Dropdown {
                 .NgxEditor__Dropdown--Text {
                     color: var(--whiteColor);
-                    background-color: #0C1427;
+                    background-color: #2F3349;
                 }
                 .NgxEditor__Dropdown--DropdownMenu {
                     .NgxEditor__Dropdown--Item {
@@ -399,7 +405,7 @@
     }
     .pagination-list {
         --border-color: var(--borderColor);
-        --tertiary-bg: #0A0E19;
+        --tertiary-bg: #25293C;
     }
 
     // File Uploader
@@ -494,14 +500,14 @@
 
     // Dropdown
     .dropdown-menu {
-        --bs-dropdown-bg: #0A0E19;
-        --bs-dropdown-link-hover-bg: #0C1427;
+        --bs-dropdown-bg: #25293C;
+        --bs-dropdown-link-hover-bg: #2F3349;
         --bs-dropdown-link-color: var(--whiteColor);
     }
 
     // Alerts
     .alert-secondary {
-        --bs-secondary-bg-subtle: #0A0E19;
+        --bs-secondary-bg-subtle: #25293C;
         --bs-secondary-border-subtle: var(--borderColor);
     }
     .alert-light {
@@ -522,7 +528,7 @@
 
     // Accordion
     .accordion {
-        --bs-body-bg: #0A0E19;
+        --bs-body-bg: #25293C;
         --bs-body-color: var(--whiteColor);
         --bs-primary-bg-subtle: #131d36;
         --bs-primary-text-emphasis: var(--whiteColor);
@@ -536,7 +542,7 @@
 
     // List Group
     .list-group {
-        --bs-list-group-bg: #0C1427;
+        --bs-list-group-bg: #2F3349;
         --bs-list-group-disabled-bg: #111a31;
         --bs-list-group-action-hover-bg: #111a31;
         --bs-list-group-action-active-bg: #111a31;
@@ -555,7 +561,7 @@
 
     // Color Picker
     .color-picker {
-        background-color: #0A0E19;
+        background-color: #25293C;
         border-color: var(--borderColor);
 
         input {
@@ -570,7 +576,7 @@
 
     // Modal
     .modal {
-        --bs-modal-bg: #0A0E19;
+        --bs-modal-bg: #25293C;
         --bs-modal-border-color: var(--borderColor);
     }
 
@@ -578,7 +584,7 @@
     .nav-tabs {
         --bs-nav-tabs-link-active-color: var(--whiteColor);
         --bs-nav-link-disabled-color: rgba(255, 255, 255, 0.25);
-        --bs-nav-tabs-link-active-bg: #0C1427;
+        --bs-nav-tabs-link-active-bg: #2F3349;
         --bs-nav-tabs-link-active-border-color: var(--borderColor);
         --bs-nav-tabs-link-hover-border-color: var(--borderColor);
 
@@ -599,12 +605,12 @@
 
     // Offcanvas
     .offcanvas, .offcanvas-xxl, .offcanvas-xl, .offcanvas-lg, .offcanvas-md, .offcanvas-sm {
-        --bs-offcanvas-bg: #0A0E19;
+        --bs-offcanvas-bg: #25293C;
     }
 
     // Pagination
     .pagination {
-        --bs-pagination-bg: #0A0E19;
+        --bs-pagination-bg: #25293C;
         --bs-pagination-focus-bg: #12192b;
         --bs-pagination-hover-bg: #12192b;
         --bs-pagination-disabled-bg: #12192b;
@@ -617,7 +623,7 @@
     
     // Table
     .table {
-        --bs-table-bg: #0C1427;
+        --bs-table-bg: #2F3349;
         --bs-table-color: var(--whiteColor);
         --bs-table-striped-color: var(--whiteColor);
         --bs-table-hover-color: var(--whiteColor);
@@ -625,13 +631,13 @@
         --bs-table-active-color: var(--whiteColor);
     }
     .table-dark {
-        --bs-table-striped-bg: #0A0E19;
+        --bs-table-striped-bg: #25293C;
         --bs-table-border-color: var(--borderColor);
-        --bs-table-active-bg: #0A0E19;
-        --bs-table-bg: #0A0E19;
+        --bs-table-active-bg: #25293C;
+        --bs-table-bg: #25293C;
     }
     .table-light {
-        --bs-table-bg: #0A0E19;
+        --bs-table-bg: #25293C;
         --bs-table-color: var(--whiteColor);
     }
 
@@ -644,21 +650,21 @@
     // Range
     .form-range {
         &::-webkit-slider-runnable-track {
-            background: #0A0E19;
+            background: #25293C;
         }
     }
 
     // Input Group
     .input-group-text {
-        --bs-tertiary-bg: #0A0E19;
+        --bs-tertiary-bg: #25293C;
         --bs-body-color: var(--whiteColor);
     }
 
     // Floting Labels
     .form-floating {
-        --bs-body-bg: #0C1427;
+        --bs-body-bg: #2F3349;
         --bs-body-color-rgb: 255, 255, 255;
-        --bs-secondary-bg: #0C1427;
+        --bs-secondary-bg: #2F3349;
         --bs-body-color: var(--whiteColor);
 
         .form-control {
