@@ -12,7 +12,9 @@ To deploy the Front-End application, we need to create an “App Service”. In 
 
 Then click in “Create”:
 
-![foo image label](.images/app-service-create.webp)Now it’s necessary to configure your app service, by selecting your subscription, your resource group, informing a name for the service, the tech stack, operating system, region and the **plan:**
+![foo image label](.images/app-service-create.webp)
+
+Now it’s necessary to configure your app service, by selecting your subscription, your resource group, informing a name for the service, the tech stack, operating system, region and the **plan:**
 
 ![foo image label](.images/create-web-app.webp)
 
@@ -72,27 +74,41 @@ Another possible way to deploy the Angular application in Azure is by KUDU. This
 
 Click in “Go”:
 
-![foo image label](.images/advanced-tools-go.webp)Another page in the browser will open, then click in “Debug console” > CMD:
+![foo image label](.images/advanced-tools-go.webp)
+
+Another page in the browser will open, then click in “Debug console” > CMD:
 
 ![foo image label](.images/debug-console.webp)
 
 You will see this page:
 
-![foo image label](.images/two-items.webp)Click in “site” and in “wwwroot”, and click in the “+” icon to add a new folder:
+![foo image label](.images/two-items.webp)
 
-![foo image label](.images/wwwroot.webp)Create a folder for your project:
+Click in “site” and in “wwwroot”, and click in the “+” icon to add a new folder:
 
-![foo image label](.images/wwwroot-create-folder.webp)Open your project local folder, and select all the files in the folder inside in the “dist” folder (after executing the `ng build --configuration production` command):
+![foo image label](.images/wwwroot.webp)
+
+Create a folder for your project:
+
+![foo image label](.images/wwwroot-create-folder.webp)
+
+Open your project local folder, and select all the files in the folder inside in the “dist” folder (after executing the `ng build --configuration production` command):
 
 ![foo image label](.images/local-folder.webp)
 
 Drag and drop these files into the new folder that you created:
 
-![foo image label](.images/drag-and-drop.webp)In your App Service in Azure portal, search for “Configuration”:
+![foo image label](.images/drag-and-drop.webp)
 
-![foo image label](.images/configuration.webp)Click in *“New virtual application or directory”*, and change from *“site\wwwroot\”* to *“site\wwwroot\BookStore-SPA”* (or the name of the folder that you created):
+In your App Service in Azure portal, search for “Configuration”:
 
-![foo image label](.images/virtual-applications-and-directories.webp)After that remember to save the changes. Now you can also access the application.
+![foo image label](.images/configuration.webp)
+
+Click in *“New virtual application or directory”*, and change from *“site\wwwroot\”* to *“site\wwwroot\BookStore-SPA”* (or the name of the folder that you created):
+
+![foo image label](.images/virtual-applications-and-directories.webp)
+
+After that remember to save the changes. Now you can also access the application.
 
 > **Note**: this is not mandatory to create a new folder inside *wwwroot*. You can simply drag and drop your local files inside the *wwwroot* folder and replace existing ones. 
 
