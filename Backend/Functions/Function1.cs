@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Backend;
-using FunctionApp1.Interfaces;
+using Backend.Interfaces;
 
 namespace Backend.Functions
 {

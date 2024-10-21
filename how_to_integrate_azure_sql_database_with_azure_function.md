@@ -196,6 +196,13 @@ To add a package:
 
 > *Migrations* folder will be created automatically. 
 
-- In the terminal: *dotnet ef database update*
+- In the terminal: *dotnet ef database update* 
+
+En extra:
+
+- Instruction pour ajouter une migration: *dotnet ef migrations add AddSomeTables --verbose*
+- Instruction pour revenir à une précédente migration: *dotnet ef database update InitialCreate*
+
+> Attention ne pas oublier de supprimer le fichier de la migration et d'éditer manuellement le fichier *ApplicationDbContextModelSnapshot.cs*
 
 At this stage, the database is created.
