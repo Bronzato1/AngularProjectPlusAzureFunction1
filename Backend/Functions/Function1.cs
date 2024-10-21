@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 using Backend;
 using FunctionApp1.Interfaces;
 
-namespace FunctionApp1
+namespace Backend.Functions
 {
     public class Function1
     {

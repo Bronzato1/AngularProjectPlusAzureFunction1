@@ -1,10 +1,10 @@
 using System;
 using System.Threading.Tasks;
-using FunctionApp1.Context;
-using FunctionApp1.Interfaces;
+using Backend.Context;
+using Backend.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace FunctionApp1.Services;
+namespace Backend.Services;
 
 public class UserService : IUserService
 {

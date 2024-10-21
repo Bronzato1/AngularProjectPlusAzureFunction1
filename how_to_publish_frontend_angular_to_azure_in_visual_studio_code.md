@@ -86,7 +86,7 @@ These files are the files that we need to deploy in Azure.
 - After deploying, you should be able to access the application in the browser
 
 ```
-https://angular-project-testing-345.westeurope-01.azurewebsites.net/
+https://angular-project-testing-123456789....westeurope-01.azurewebsites.net/
 ```
 
 ## Deploying the Angular App with “KUDU”

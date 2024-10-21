@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace FunctionApp1.Interfaces;
+namespace Backend.Interfaces;
 
 public interface IUserService
 {

@@ -1,8 +1,8 @@
 using System;
-using FunctionApp1.Models;
+using Backend.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FunctionApp1.Context;
+namespace Backend.Context;
 
 public class ApplicationDbContext : DbContext
 {
@@ -15,6 +15,8 @@ public class ApplicationDbContext : DbContext
     }
 
     public DbSet<User> Users { get; set; }
+    public DbSet<Customer> Customers { get; set; }
+    public DbSet<State> States { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

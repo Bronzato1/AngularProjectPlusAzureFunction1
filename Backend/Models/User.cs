@@ -1,4 +1,4 @@
-namespace FunctionApp1.Models;
+namespace Backend.Models;
 
 public class User
 {

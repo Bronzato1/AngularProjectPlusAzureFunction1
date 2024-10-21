@@ -1,14 +1,14 @@
 using System;
-using FunctionApp1.Context;
-using FunctionApp1.Interfaces;
-using FunctionApp1.Services;
+using Backend.Context;
+using Backend.Interfaces;
+using Backend.Services;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: FunctionsStartup(typeof(FunctionApp1.Startup))]
+[assembly: FunctionsStartup(typeof(Backend.Startup))]
 
-namespace FunctionApp1;
+namespace Backend;
 
 // https://learn.microsoft.com/en-us/azure/azure-functions/functions-dotnet-dependency-injection
 public class Startup : FunctionsStartup
