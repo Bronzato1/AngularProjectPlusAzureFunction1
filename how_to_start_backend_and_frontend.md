@@ -4,7 +4,8 @@
 
 - Right click on the *Backend* folder
 - Click on  *Open in Integrated Terminal*
-- Execute `func host start --verbose`
+- Because this is an Azure Function, execute `func host start --verbose`
+- In case this was a controller, execute `dotnet restore` `dotnet build` `dotnet watch run`
 
 ## Start frontend
 

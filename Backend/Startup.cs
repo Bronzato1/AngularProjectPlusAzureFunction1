@@ -24,8 +24,10 @@ public class Startup : FunctionsStartup
 		// This startup file is not executed with instructions from the terminal.
         // local.settings.json file is accessible and queryable.
 
-		var SQLConnectionString = Environment.GetEnvironmentVariable("ConnectionStrings:SQLConnectionString");
-		
+		var isLocal = Environment.GetEnvironmentVariable("AZURE_FUNCTIONS_ENVIRONMENT") == "Development"; // by default set to "Development" locally. Note that when deployed/published on Azure, you'd need to set the environment variable yourself
+		var variable = isLocal ? "ConnectionStrings:ONE_PLUS_ONE" : "SQLAZURECONNSTR_ONE_PLUS_ONE"; //  Why prefixed with SQLAZURECONNSTR_... ? See here: https://learn.microsoft.com/en-us/azure/app-service/configure-common?tabs=portal#configure-connection-strings
+		var SQLConnectionString = Environment.GetEnvironmentVariable(variable);
+
 		builder.Services.AddDbContextFactory<ApplicationDbContext>(options => options.UseSqlServer(SQLConnectionString));
 
 		builder.Services.AddScoped<IUserService, UserService>();

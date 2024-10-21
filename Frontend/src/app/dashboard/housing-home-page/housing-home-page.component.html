@@ -1,0 +1,68 @@
+<!-- Title -->
+<div class="breadcrumb-card mb-25 d-md-flex align-items-center justify-content-between">
+    <h5 class="mb-0">
+        Housing page
+    </h5>    
+</div>
+
+<!-- Note -->
+<div class="zzz-card mb-25 border-radius d-block bg-white border-0 shadow-none">
+    <div class="zzz-card-header d-flex align-items-center justify-content-between">
+        <div class="zzz-card-title">
+            <h5 class="mb-0">
+                Note
+            </h5>
+        </div>
+    </div>
+    <div class="zzz-card-content">
+        <div class="row">
+            <div class="col-12">
+                <p>
+                    This page is calling JSON Server which is a lightweight and easy-to-use <br/>
+                    Node.js tool that simulates a RESTful API using a JSON file as the data source. <br/>
+                    Don't forget to launch the json server first `json-server --watch db.json`
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fetch #1 -->
+<div class="zzz-card mb-25 border-radius d-block bg-white border-0 shadow-none">
+    <div class="zzz-card-header d-flex align-items-center justify-content-between">
+        <div class="zzz-card-title">
+            <h5 class="mb-0">
+                Fetch #1
+            </h5>
+        </div>
+    </div>
+    <div class="zzz-card-content">
+        <div class="row">
+            <div class="col-12">
+                <p>
+                    Name: <b>{{housingLocation?.name}}</b>
+                    <br/>
+                    City: <b>{{housingLocation?.city}}</b>
+                </p>                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fetch all -->
+<div class="zzz-card mb-25 border-radius d-block bg-white border-0 shadow-none">
+    <div class="zzz-card-header d-flex align-items-center justify-content-between">
+        <div class="zzz-card-title">
+            <h5 class="mb-0">
+                Fetch all
+            </h5>
+        </div>
+    </div>
+    <div class="zzz-card-content">
+        <div class="row">
+            <div class="col-12">
+                <app-housing-detail-page *ngFor="let housingLocation of housingLocationList" [housingLocation]="housingLocation" ></app-housing-detail-page>              
+            </div>
+        </div>
+    </div>
+</div>

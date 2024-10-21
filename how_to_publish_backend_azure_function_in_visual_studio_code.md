@@ -26,11 +26,22 @@ Prerequisite: installing VS Code  extensions below:
 
 ## 2nd step: Deploy to Function App
 
+### Method 1
+
 - Press `F1` key to show the Command Palette
 - Type *Azure Function*
 - In the list, select **Deploy to Function App**
 - Select a subscription: **Visual Studio Professional**
 - Select a function app: (the one created in step 1)
+
+### Method 2
+
+- Click on the *Azure* extention in the left sidebar
+- Select a subscription: **Visual Studio Professional**
+- Expand the node named **Function App**
+- Right click on a function app: (the one created on step 1)
+- In the contextual menu, select **Deploy to Function App**
+- Confirm on the dialog *Are you sure you want todeploy to ...*
 
 The Function App is deployed on Azure.
 

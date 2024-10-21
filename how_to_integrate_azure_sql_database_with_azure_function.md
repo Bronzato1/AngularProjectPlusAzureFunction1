@@ -96,6 +96,18 @@ Source here: https://firattonak.medium.com/deploying-angular-app-using-asp-net-c
   <img src=".images/azure-sql-database-firewall-rule-save.webp" style="width: 63%; height: 63%;">
 </div>
 
+Furthermore, this is very important to **Allow Azure services and resources to access this server** like showed below. 
+
+Why ? Because otherwize you will not be able to connect to this database once your Azure functions are published on Azure. 
+
+<div style="display: flex; justify-content: left; padding: 10px;">
+  <img src=".images/set-server-firewall.webp" style="width: 63%; height: 63%;">
+</div>
+
+<div style="display: flex; justify-content: left; padding: 10px;">
+  <img src=".images/allow-azure-services.webp" style="width: 63%; height: 63%;">
+</div>
+
 > Now, it’s time to configure our backend project.
 
 - Click on the “Show database connection string” link, and then copy the connection string.
@@ -108,11 +120,11 @@ Source here: https://firattonak.medium.com/deploying-angular-app-using-asp-net-c
   <img src=".images/azure-sql-database-connection-string.webp" style="width: 63%; height: 63%;">
 </div>
 
-- Open the backend project, go to the appsettings.Development.json file, and enter the connection string.
+- Open the backend project, go to the *local.settings.json* file, and enter the connection string.
 
-xxxxxx
-
-xxxxxx
+<div style="display: flex; justify-content: left; padding: 10px;">
+  <img src=".images/connections-strings-one-plus-one.webp" style="width: 63%; height: 63%;">
+</div>
 
 - To test your database connection, go to Microsoft SQL Management Studio and attempt to connect to the server.
 
@@ -142,7 +154,7 @@ You will notice that a new firewall rule has been created
   <img src=".images/azure-sql-database-firewall-rule-created.webp" style="width: 73%; height: 73%;">
 </div>
 
-> Now, it’s time to create a DbContext to connect to the Database. To accomplish this, follow the steps in Visual Studio Code
+> Now, it’s time to create a **DbContext** to connect to the Database. To accomplish this, follow the steps in Visual Studio Code
 
 In order to use Entity Framework and connect to the database, we have to install the following packages:
 
@@ -174,11 +186,12 @@ To add a package:
 ### What next ?
 
 - After adding the packages, create a folder named *Context* and another one *Models*
+- Take a look at the code in *ApplicationDbContext.cs* to have an example of implementation.
 
 > Environment variables are not accessible when executing instructions from the terminal. So this is needed to manually set them like below.
 
 - In the terminal: *$env:AZURE_FUNCTIONS_ENVIRONMENT='Development'*
-- In the terminal: *$env:ConnectionStrings:SQLConnectionString="Server=tcp:one-plus-one.database.windows.net,1433;Initial Catalog=one-plus-one_db;Persist Security Info=False;User ID=admin-test;Password=C0mplexPwd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"*
+- In the terminal: *$env:ConnectionStrings:ONE_PLUS_ONE="Server=tcp:one-plus-one.database.windows.net,1433;Initial Catalog=one-plus-one_db;Persist Security Info=False;User ID=admin-test;Password=C0mplexPwd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"*
 - In the terminal: *dotnet ef migrations add InitialCreate*
 
 > *Migrations* folder will be created automatically. 
@@ -186,6 +199,3 @@ To add a package:
 - In the terminal: *dotnet ef database update*
 
 At this stage, the database is created.
-
-
-
