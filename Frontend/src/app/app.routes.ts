@@ -6,6 +6,7 @@ import { SecuredPageComponent } from './dashboard/secured-page/secured-page.comp
 import { BlankPageComponent } from './dashboard/blank-page/blank-page.component';
 import { HousingHomePageComponent } from './dashboard/housing-home-page/housing-home-page.component';
 import { CustomersComponent } from './dashboard/customer/customers.component';
+import { CustomerEditReactiveComponent } from './dashboard/customer/customer-edit-reactive.component';
 
 export const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -20,7 +21,9 @@ export const appRoutes: Routes = [
       { path: 'secured-page', component: SecuredPageComponent, canActivate: [OktaAuthGuard] },
       { path: 'blank-page', component: BlankPageComponent },
       { path: 'housing-home-page', component: HousingHomePageComponent },
-      { path: 'customers', component: CustomersComponent }
+      { path: 'customers', component: CustomersComponent },
+      { path: 'customers/:id', component: CustomerEditReactiveComponent }      
     ]
-}
+  },
+  { path: '**', redirectTo: '', pathMatch: 'full' } //catch any unfound routes and redirect to...
 ];

@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 
-import { DataService } from '../core/data.service';
-import { ICustomer, IState } from '../shared/interfaces';
-import { ValidationService } from '../shared/validation.service';
+import { CustomerDataService } from '../../services/customer-data.service';
+import { ICustomer, IState } from '../../interfaces/customer.interface';
+import { ValidationService } from '../../common/validation/validation.service';
 
 @Component({
   selector: 'customer-edit-reactive',
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './customer-edit-reactive.component.html'
 })
 export class CustomerEditReactiveComponent implements OnInit {
@@ -33,7 +36,7 @@ export class CustomerEditReactiveComponent implements OnInit {
   
   constructor(private router: Router, 
               private route: ActivatedRoute, 
-              private dataService: DataService,
+              private customerDataService: CustomerDataService,
               private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -48,7 +51,7 @@ export class CustomerEditReactiveComponent implements OnInit {
   }
 
   getCustomer(id: string) {
-      this.dataService.getCustomer(id)
+      this.customerDataService.getCustomer(id)
         .subscribe((customer: ICustomer) => {
           this.customer = customer;
           this.buildForm();
@@ -69,7 +72,7 @@ export class CustomerEditReactiveComponent implements OnInit {
   }
 
   getStates() {
-    this.dataService.getStates().subscribe((states: IState[]) => this.states = states);
+    this.customerDataService.getStates().subscribe((states: IState[]) => this.states = states);
   }
   
   submit({ value, valid }: { value: ICustomer, valid: boolean }) {
@@ -82,7 +85,7 @@ export class CustomerEditReactiveComponent implements OnInit {
 
       if (value.id) {
 
-        this.dataService.updateCustomer(value)
+        this.customerDataService.updateCustomer(value)
           .subscribe((customer: ICustomer) => {
             if (customer) {
               this.router.navigate(['/customers']);
@@ -95,7 +98,7 @@ export class CustomerEditReactiveComponent implements OnInit {
 
       } else {
 
-        this.dataService.insertCustomer(value)
+        this.customerDataService.insertCustomer(value)
           .subscribe((customer: ICustomer) => {
             if (customer) {
               this.router.navigate(['/customers']);
@@ -116,7 +119,7 @@ export class CustomerEditReactiveComponent implements OnInit {
 
   delete(event: Event) {
     event.preventDefault();
-    this.dataService.deleteCustomer(this.customer.id as string)
+    this.customerDataService.deleteCustomer(this.customer.id as string)
         .subscribe((status: boolean) => {
           if (status) {
             this.router.navigate(['/customers']);
