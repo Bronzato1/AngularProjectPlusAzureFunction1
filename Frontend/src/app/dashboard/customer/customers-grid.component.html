@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row grid-container">
+        <div class="col-md-16">
+            <div class="basic-table table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th (click)="sort('firstName')">First Name</th>
+                            <th (click)="sort('lastName')">Last Name</th>
+                            <th (click)="sort('address')">Address</th>
+                            <th (click)="sort('city')">City</th>
+                            <th (click)="sort('state.name')">State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let customer of customers;trackBy:trackby.customer">
+                            <td>
+                                <div class="user-info d-flex align-items-center">
+                                    <div class="image">
+                                        <img src="assets/images/{{ customer.gender | lowercase }}.png" class="card-image" alt="Customer Image" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td><a [routerLink]="['/customers',customer.id]">{{ customer.firstName | capitalize }}</a></td>
+                            <td>{{ customer.lastName | capitalize }}</td>
+                            <td>{{ customer.address }}</td>
+                            <td>{{ customer.city | trim }}</td>
+                            <td>{{ customer.state?.name }}</td>
+                        </tr>
+                        <tr *ngIf="!customers.length">
+                            <td>&nbsp;</td>
+                            <td colspan="6">No Records Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

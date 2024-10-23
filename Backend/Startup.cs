@@ -1,6 +1,7 @@
 using System;
 using Backend.Context;
 using Backend.Interfaces;
+using Backend.Repository;
 using Backend.Services;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
@@ -31,5 +32,8 @@ public class Startup : FunctionsStartup
 		builder.Services.AddDbContextFactory<ApplicationDbContext>(options => options.UseSqlServer(SQLConnectionString));
 
 		builder.Services.AddScoped<IUserService, UserService>();
+		builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+		builder.Services.AddScoped<IStateRepository, StateRepository>();
+
     }
 }

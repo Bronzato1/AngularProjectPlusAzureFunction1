@@ -12,11 +12,11 @@ using Backend.Interfaces;
 
 namespace Backend.Functions
 {
-    public class Function1
+    public class TestFunction
     {
         private readonly IUserService _userService;
 
-        public Function1(IUserService userService)
+        public TestFunction(IUserService userService)
         {
             _userService = userService;
         }

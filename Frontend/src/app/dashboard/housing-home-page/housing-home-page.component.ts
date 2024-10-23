@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { HousingService } from '../../services/housing.service';
-import { HousingLocation } from '../../Models/housing-location';
+import { HousingService } from '../../services/housing-data-service';
+import { IHousingLocation } from '../../interfaces/housing.location.interface';
 import { HousingDetailPageComponent } from '../housing-detail-page/housing-detail-page.component';
 import { CommonModule } from '@angular/common';
 
@@ -13,16 +13,16 @@ import { CommonModule } from '@angular/common';
 })
 export class HousingHomePageComponent {
   housingService = inject(HousingService);
-  housingLocation: HousingLocation | undefined;
-  housingLocationList: HousingLocation[] = [];
+  housingLocation: IHousingLocation | undefined;
+  housingLocationList: IHousingLocation[] = [];
 
   constructor() {
     // Get #1
-    this.housingService.getHousingLocationById(1).then((housingLocation: HousingLocation | undefined) => {
+    this.housingService.getHousingLocationById(1).then((housingLocation: IHousingLocation | undefined) => {
       this.housingLocation = housingLocation;
     });
     // Get all
-    this.housingService.getAllHousingLocations().then((housingLocationList: HousingLocation[]) => {
+    this.housingService.getAllHousingLocations().then((housingLocationList: IHousingLocation[]) => {
       this.housingLocationList = housingLocationList;
     });
   }

@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService
+export class TestDataService
 {
   baseUrl = environment.apiUrl;
   baseMessagesUrl = this.baseUrl + 'messages';

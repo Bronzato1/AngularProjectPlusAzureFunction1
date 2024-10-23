@@ -2,10 +2,33 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Attach to .NET Functions",
+            "name": "Backend debug",
             "type": "coreclr",
             "request": "attach",
             "processId": "${command:azureFunctions.pickProcess}"
-        }
-    ]
+        },
+        {
+            "name": "Frontend debug",
+            "type": "msedge",
+            "request": "launch",
+            "preLaunchTask": "debugproj",
+            "postDebugTask": "killnode",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}/Frontend",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+              "webpack:/*": "${webRoot}/*",
+              "/./*": "${webRoot}/*",
+              "/src/*": "${webRoot}/*",
+              "/*": "*",
+              "/./~/*": "${webRoot}/node_modules/*"
+            }
+        }    
+    ],
+    "compounds": [
+    {
+      "name": "Full debug",
+      "configurations": ["Backend debug", "Frontend debug"]
+    }
+  ]
 }

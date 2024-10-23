@@ -44,90 +44,98 @@ public class ApplicationDbContext : DbContext
         optionsBuilder.UseSqlServer(SQLConnectionString);
         
         // See here for seeding: https://learn.microsoft.com/en-us/ef/core/modeling/data-seeding
+ 
+        // ██████████████████████████
+        // ██ Note pour moi-même:
+        // ██ J'avais installé une Release Candidate (Version="9.0.0-rc.2.24474.1")
+        // ██ 
+        // ██ A cause d'un problème de compilation à l'exécution de la commande 'func host start', 
+        // ██ obligé de revenir temporairement à la dernière version officelle.
+        // ██ du coup, obligé de mettre le code ci-dessous en commentaire.
+        // ██████████████████████████
+        // optionsBuilder.UseSeeding((context, _) =>
+        // {
+        //     Console.WriteLine("┌─────────────────────────────────────────────────────┐");
+        //     Console.WriteLine("│ ██ ApplicationDbContext.OnConfiguring -> UseSeeding │");
+        //     Console.WriteLine("└─────────────────────────────────────────────────────┘");
 
-        optionsBuilder.UseSeeding((context, _) =>
-        {
-            Console.WriteLine("┌─────────────────────────────────────────────────────┐");
-            Console.WriteLine("│ ██ ApplicationDbContext.OnConfiguring -> UseSeeding │");
-            Console.WriteLine("└─────────────────────────────────────────────────────┘");
+        //     if (!context.Set<State>().Any())
+        //     {
+        //         var states = GetStates();
+        //         context.Set<State>().AddRange(states);
 
-            if (!context.Set<State>().Any())
-            {
-                var states = GetStates();
-                context.Set<State>().AddRange(states);
+        //         try
+        //         {
+        //             int numAffected = context.SaveChanges();
+        //             Console.WriteLine($"██████ Saved {numAffected} states");
+        //         }
+        //         catch (Exception exp)
+        //         {                
+        //             Console.WriteLine($"██████ Error in {nameof(ApplicationDbContext)}: " + exp.Message);
+        //             throw; 
+        //         }
+        //     }
 
-                try
-                {
-                    int numAffected = context.SaveChanges();
-                    Console.WriteLine($"██████ Saved {numAffected} states");
-                }
-                catch (Exception exp)
-                {                
-                    Console.WriteLine($"██████ Error in {nameof(ApplicationDbContext)}: " + exp.Message);
-                    throw; 
-                }
-            }
+        //     if (!context.Set<Customer>().Any())
+        //     {
+        //         var states = GetStates();
+        //         var customers = GetCustomers(states);
+        //         context.Set<Customer>().AddRange(customers);
 
-            if (!context.Set<Customer>().Any())
-            {
-                var states = GetStates();
-                var customers = GetCustomers(states);
-                context.Set<Customer>().AddRange(customers);
-
-                try
-                {
-                    int numAffected = context.SaveChanges();
-                    Console.WriteLine($"██████ Saved {numAffected} customers");
-                }
-                catch (Exception exp)
-                {
-                    Console.WriteLine($"██████ Error in {nameof(ApplicationDbContext)}: " + exp.Message);
-                    throw;
-                }
-            }
-        });
+        //         try
+        //         {
+        //             int numAffected = context.SaveChanges();
+        //             Console.WriteLine($"██████ Saved {numAffected} customers");
+        //         }
+        //         catch (Exception exp)
+        //         {
+        //             Console.WriteLine($"██████ Error in {nameof(ApplicationDbContext)}: " + exp.Message);
+        //             throw;
+        //         }
+        //     }
+        // });
         
-        optionsBuilder.UseAsyncSeeding(async (context, _, cancellationToken) =>
-        {
-            Console.WriteLine("┌──────────────────────────────────────────────────────────┐");
-            Console.WriteLine("│ ██ ApplicationDbContext.OnConfiguring -> UseAsyncSeeding │");
-            Console.WriteLine("└──────────────────────────────────────────────────────────┘");
+        // optionsBuilder.UseAsyncSeeding(async (context, _, cancellationToken) =>
+        // {
+        //     Console.WriteLine("┌──────────────────────────────────────────────────────────┐");
+        //     Console.WriteLine("│ ██ ApplicationDbContext.OnConfiguring -> UseAsyncSeeding │");
+        //     Console.WriteLine("└──────────────────────────────────────────────────────────┘");
 
-            if (!await context.Set<State>().AnyAsync())
-            {
-                var states = GetStates();
-                await context.Set<State>().AddRangeAsync(states);
+        //     if (!await context.Set<State>().AnyAsync())
+        //     {
+        //         var states = GetStates();
+        //         await context.Set<State>().AddRangeAsync(states);
 
-                try
-                {
-                    int numAffected = await context.SaveChangesAsync();
-                    Console.WriteLine(@"██████ Saved {numAffected} states");
-                }
-                catch (Exception exp)
-                {                
-                    Console.WriteLine($"██████ Error in {nameof(ApplicationDbContext)}: " + exp.Message);
-                    throw; 
-                }
-            }
+        //         try
+        //         {
+        //             int numAffected = await context.SaveChangesAsync();
+        //             Console.WriteLine(@"██████ Saved {numAffected} states");
+        //         }
+        //         catch (Exception exp)
+        //         {                
+        //             Console.WriteLine($"██████ Error in {nameof(ApplicationDbContext)}: " + exp.Message);
+        //             throw; 
+        //         }
+        //     }
 
-            if (!await context.Set<Customer>().AnyAsync())
-            {
-                var states = GetStates();
-                var customers = GetCustomers(states);
-                await context.Set<Customer>().AddRangeAsync(customers);
+        //     if (!await context.Set<Customer>().AnyAsync())
+        //     {
+        //         var states = GetStates();
+        //         var customers = GetCustomers(states);
+        //         await context.Set<Customer>().AddRangeAsync(customers);
 
-                try
-                {
-                    int numAffected = await context.SaveChangesAsync();
-                    Console.WriteLine($"██████ Saved {numAffected} customers");
-                }
-                catch (Exception exp)
-                {
-                    Console.WriteLine($"██████ Error in {nameof(ApplicationDbContext)}: " + exp.Message);
-                    throw;
-                }
-            }
-        });
+        //         try
+        //         {
+        //             int numAffected = await context.SaveChangesAsync();
+        //             Console.WriteLine($"██████ Saved {numAffected} customers");
+        //         }
+        //         catch (Exception exp)
+        //         {
+        //             Console.WriteLine($"██████ Error in {nameof(ApplicationDbContext)}: " + exp.Message);
+        //             throw;
+        //         }
+        //     }
+        // });
     }
 
     private List<State> GetStates() {

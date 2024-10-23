@@ -5,6 +5,7 @@ import { TestPageComponent } from './dashboard/test-page/test-page.component';
 import { SecuredPageComponent } from './dashboard/secured-page/secured-page.component';
 import { BlankPageComponent } from './dashboard/blank-page/blank-page.component';
 import { HousingHomePageComponent } from './dashboard/housing-home-page/housing-home-page.component';
+import { CustomersComponent } from './dashboard/customer/customers.component';
 
 export const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -18,7 +19,8 @@ export const appRoutes: Routes = [
       { path: 'test-page', component: TestPageComponent },
       { path: 'secured-page', component: SecuredPageComponent, canActivate: [OktaAuthGuard] },
       { path: 'blank-page', component: BlankPageComponent },
-      { path: 'housing-home-page', component: HousingHomePageComponent }
+      { path: 'housing-home-page', component: HousingHomePageComponent },
+      { path: 'customers', component: CustomersComponent }
     ]
 }
 ];

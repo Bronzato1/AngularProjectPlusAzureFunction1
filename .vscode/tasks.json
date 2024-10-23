@@ -76,6 +76,69 @@
 			"command": "host start",
 			"isBackground": true,
 			"problemMatcher": "$func-dotnet-watch"
-		}
+		},
+		{
+            "label": "debugproj",
+            "type": "npm",
+            "script": "start",
+            "isBackground": true,
+            "presentation": {
+                "focus": true,
+                "panel": "dedicated"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "owner": "typescript",
+                "source": "ts",
+                "applyTo": "closedDocuments",
+                "fileLocation": [
+                    "relative",
+                    "${cwd}"
+                ],
+                "pattern": "$tsc",
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": {
+                        "regexp": "(.*?)"
+                    },
+                    "endsPattern": {
+                        "regexp": "Compiled |Failed to compile."
+                    }
+                }
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/Frontend/src"
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+        {
+            "label": "killnode",
+            "type": "process",
+			"command": "taskkill",
+			"args": [
+				"/F",
+				"/IM",
+				"node.exe"
+			],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "isBackground": false,
+            "dependsOrder": "sequence",
+            "dependsOn": "debugproj",
+            "problemMatcher": []
+        }
 	]
 }
