@@ -21,7 +21,7 @@ export class CustomersGridComponent implements OnInit {
 
   @Input() customers: ICustomer[] = [];
 
-  constructor(private sorter: Sorter, public trackby: TrackByService) { }
+  constructor(private router: Router, private sorter: Sorter, public trackby: TrackByService) { }
    
   ngOnInit() {
 
@@ -29,6 +29,15 @@ export class CustomersGridComponent implements OnInit {
 
   sort(prop: string) {
       this.sorter.sort(this.customers, prop);
+  }
+
+  editCustomer(id: string) {
+    console.log('id: ' + id);
+    this.router.navigateByUrl('/dashboard/customers/' + id);
+  }
+
+  deleteCustomer() {
+
   }
 
 }

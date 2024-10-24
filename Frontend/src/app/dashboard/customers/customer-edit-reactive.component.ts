@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 
 import { CustomerDataService } from '../../services/customer-data.service';
@@ -10,8 +10,9 @@ import { ValidationService } from '../../common/validation/validation.service';
 @Component({
   selector: 'customer-edit-reactive',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './customer-edit-reactive.component.html'
+  imports: [RouterLink, ReactiveFormsModule, CommonModule],
+  templateUrl: './customer-edit-reactive.component.html',
+  styleUrl: './customer-edit-reactive.component.scss'
 })
 export class CustomerEditReactiveComponent implements OnInit {
 

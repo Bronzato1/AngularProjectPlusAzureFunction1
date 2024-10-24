@@ -1,17 +1,34 @@
-<nav [hidden]="!isVisible">
-  <ul class="pagination">
-    <li [class.disabled]="!previousEnabled" (click)="previousNext(-1, $event)">
-      <a aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li *ngFor="let page of pages" (click)="changePage(page, $event)" [class.active]="currentPage === page">
-      <a>{{ page }}</a>
-    </li>
-    <li [class.disabled]="!nextEnabled" (click)="previousNext(1, $event)">
-      <a aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+<div class="zzz-card-pagination" [hidden]="!isVisible">
+  <div class="d-md-flex align-items-center justify-content-between">
+      <p class="mb-0">
+          Showing {{ currentPage < totalPages ? pagerPageSize : pagerTotalItems - ((currentPage - 1) * pagerPageSize)  }} of {{ pagerTotalItems }} results
+      </p>
+      <ol class="list-unstyled mb-0 p-0">
+          <li [class.disabled]="!previousEnabled" class="d-inline-block" type="button" (click)="previousNext(-1, $event)">
+              <a class="prev">
+                  <span class="opacity-0">
+                      0
+                  </span>
+                  <i class="material-symbols-outlined">
+                      chevron_left
+                  </i>
+              </a>
+          </li>
+          <li *ngFor="let page of pages" type="button" (click)="changePage(page, $event)" class="d-inline-block">
+              <a routerLink="." [class.active]="currentPage === page">
+                {{ page }}
+              </a>
+          </li>
+          <li [class.disabled]="!nextEnabled" class="d-inline-block" type="button" (click)="previousNext(1, $event)">
+              <a class="next">
+                  <span class="opacity-0">
+                      0
+                  </span>
+                  <i class="material-symbols-outlined">
+                      chevron_right
+                  </i>
+              </a>
+          </li>
+      </ol>
+</div>  
+

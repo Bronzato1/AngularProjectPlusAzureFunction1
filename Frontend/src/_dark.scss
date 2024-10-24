@@ -1,7 +1,8 @@
 //////////////////////////////////////
+/// Thierry Langie                 ///
 /// I Made the adjustements below: ///
-/// - changed #25293C with #25293C ///
-/// - changed #2F3349 with #2F3349 ///
+/// - changed #0A0E19 with #25293C ///
+/// - changed #0C1427 with #2F3349 ///
 //////////////////////////////////////
 
 .dark-theme {
@@ -673,5 +674,16 @@
             }
         }
     }
+
+    /************************************************
+    * Thierry Langie - below rules updated manually *
+    *************************************************/
+
+    .form-control,
+    .form-select {
+        background-color: #25293c;  
+    }
+
+    /************************************************/
     
 }

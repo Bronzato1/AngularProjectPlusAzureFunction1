@@ -1,0 +1,46 @@
+<div class="basic-table table-responsive">
+    <table class="table mb-0">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th scope="col" class="fw-medium" (click)="sort('firstName')">First Name</th>
+                <th scope="col" class="fw-medium" (click)="sort('lastName')">Last Name</th>
+                <th scope="col" class="fw-medium" (click)="sort('address')">Address</th>
+                <th scope="col" class="fw-medium" (click)="sort('city')">City</th>
+                <th scope="col" class="fw-medium" (click)="sort('state.name')">State</th>
+                <th scope="col" class="fw-medium">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customers;trackBy:trackby.customer">
+                <td>
+                    <div class="customer-info d-flex align-items-center">
+                        <div class="img">
+                            <img src="assets/images/{{ customer.gender | lowercase }}.png" class="card-image" alt="Customer Image" />
+                        </div>
+                    </div>
+                </td>
+                <td> <a [routerLink]="['/dashboard/customers',customer.id]">{{ customer.firstName | capitalize }}</a> </td>
+                <td>{{ customer.lastName | capitalize }}</td>
+                <td>{{ customer.address }}</td>
+                <td>{{ customer.city | trim }}</td>
+                <td>{{ customer.state?.name }}</td>
+                <td>
+                    <div class="action-buttons d-flex align-items-center">
+                        <button type="button" (click)="editCustomer(customer.id!)" class="p-0 bg-transparent d-inline-block lh-1 border-0">
+                            <i class="material-symbols-outlined"> edit </i>
+                        </button>
+                        <button type="button" (click)="deleteCustomer()" class="p-0 bg-transparent d-inline-block lh-1 border-0">
+                            <i class="material-symbols-outlined"> delete </i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            <tr *ngIf="!customers.length">
+                <td>&nbsp;</td>
+                <td colspan="6">No Records Found</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

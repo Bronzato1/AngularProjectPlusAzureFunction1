@@ -71,7 +71,7 @@ namespace Backend.Functions
 
         // GET api/customers/5
         [FunctionName("GetCustomer")]
-        public async Task<IActionResult> GetCustomer([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "customer/{id}")] HttpRequest req, ILogger log, int id)
+        public async Task<IActionResult> GetCustomer([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "customers/{id}")] HttpRequest req, ILogger log, int id)
         {
             try
             {
@@ -121,7 +121,7 @@ namespace Backend.Functions
         // PUT api/customers/5
         // [ValidateAntiForgeryToken]
         [FunctionName("UpdateCustomer")]
-        public async Task<IActionResult> UpdateCustomer([HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "customer/{id}")] HttpRequest req, ILogger log, [FromBody]Customer customer)
+        public async Task<IActionResult> UpdateCustomer([HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "customers/{id}")] HttpRequest req, ILogger log, [FromBody]Customer customer)
         {
             try
             {
@@ -150,7 +150,7 @@ namespace Backend.Functions
         // DELETE api/customers/5
         //[ValidateAntiForgeryToken]
         [FunctionName("DeleteCustomer")]
-        public async Task<IActionResult> DeleteCustomer([HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "customer/{id}")] HttpRequest req, ILogger log, int id)
+        public async Task<IActionResult> DeleteCustomer([HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "customers/{id}")] HttpRequest req, ILogger log, int id)
         {
             try
             {

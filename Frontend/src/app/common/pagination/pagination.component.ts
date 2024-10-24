@@ -11,8 +11,8 @@ import { CommonModule } from '@angular/common';
 
 export class PaginationComponent implements OnInit {
   
-  private pagerTotalItems = 0;
-  private pagerPageSize = 0;
+  pagerTotalItems = 0;
+  pagerPageSize = 0;
   
   totalPages = 0;
   pages: number[] = [];

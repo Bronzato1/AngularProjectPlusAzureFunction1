@@ -6,13 +6,12 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   template: `
-    <form>
-         Filter:
          <input type="text" name="filter"
                 [(ngModel)]="model.filter" 
-                (keyup)="filterChanged($event)"  />
-    </form>
-  `
+                (keyup)="filterChanged($event)" 
+                class="input-search d-block w-100 border-radius" 
+                placeholder="Search customer here....." />
+    `
 })
 export class FilterTextboxComponent {
 

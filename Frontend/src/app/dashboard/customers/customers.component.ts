@@ -4,18 +4,17 @@ import { DataFilterService } from '../../services/data-filter.service';
 import { CustomerDataService } from '../../services/customer-data.service';
 import { ICustomer, IOrder, IPagedResults } from '../../interfaces/customer.interface';
 import { FilterTextboxComponent } from '../../common/filter-textbox/filter-textbox.component';
-import { CustomersGridComponent } from '../customer/customers-grid.component';
+import { CustomersGridComponent } from './customers-grid.component';
 import { PaginationComponent } from '../../common/pagination/pagination.component';
 
 @Component({ 
-  selector: 'customers', 
+  selector: 'customer', 
   standalone: true,
   imports: [FilterTextboxComponent, RouterLink, CustomersGridComponent, PaginationComponent],
   templateUrl: './customers.component.html'
 })
 export class CustomersComponent implements OnInit {
 
-  title = '';
   customers: ICustomer[] = [];
   filteredCustomers: ICustomer[] = [];
 
@@ -27,13 +26,12 @@ export class CustomersComponent implements OnInit {
               private dataFilter: DataFilterService) { }
   
   ngOnInit() {
-    this.title = 'Customers';
     this.getCustomersPage(1);
   }
 
   filterChanged(filterText: string) {
     if (filterText && this.customers) {
-        let props = ['firstName', 'lastName', 'address', 'city', 'state.name', 'orderTotal'];
+        let props = ['firstName', 'lastName', 'address', 'city', 'state.name'];
         this.filteredCustomers = this.dataFilter.filter(this.customers, props, filterText);
     }
     else {

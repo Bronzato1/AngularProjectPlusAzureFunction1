@@ -5,8 +5,9 @@ import { TestPageComponent } from './dashboard/test-page/test-page.component';
 import { SecuredPageComponent } from './dashboard/secured-page/secured-page.component';
 import { BlankPageComponent } from './dashboard/blank-page/blank-page.component';
 import { HousingHomePageComponent } from './dashboard/housing-home-page/housing-home-page.component';
-import { CustomersComponent } from './dashboard/customer/customers.component';
-import { CustomerEditReactiveComponent } from './dashboard/customer/customer-edit-reactive.component';
+import { CustomersComponent } from './dashboard/customers/customers.component';
+import { CustomerEditReactiveComponent } from './dashboard/customers/customer-edit-reactive.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -25,5 +26,5 @@ export const appRoutes: Routes = [
       { path: 'customers/:id', component: CustomerEditReactiveComponent }      
     ]
   },
-  { path: '**', redirectTo: '', pathMatch: 'full' } //catch any unfound routes and redirect to...
+  {path: '**', component: NotFoundComponent} // This line will remain down from the whole pages component list
 ];

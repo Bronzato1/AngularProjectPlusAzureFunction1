@@ -2906,6 +2906,10 @@ textarea.form-control {
   --bodyColor: #8695AA;
   --bs-border-color: var(--borderColor);
   --bs-secondary-color: rgba(255, 255, 255, 0.75);
+  /************************************************
+  * Thierry Langie - below rules updated manually *
+  *************************************************/
+  /************************************************/
 }
 .dark-theme a {
   color: var(--whiteColor);
@@ -3340,6 +3344,10 @@ textarea.form-control {
 }
 .dark-theme .form-floating .form-control::placeholder {
   color: transparent;
+}
+.dark-theme .form-control,
+.dark-theme .form-select {
+  background-color: #25293c;
 }
 
 .rtl-enabled {
@@ -4111,4 +4119,13 @@ textarea.form-control {
   }
 }
 /* Min width 1200px to Max width 1399px */
-/* Min width 1600px *//*# sourceMappingURL=styles.css.map */
+/* Min width 1600px */
+/************************************************
+* Thierry Langie - below rules updated manually *
+*************************************************/
+.form-control,
+.form-select {
+  background-color: #f6f7f9;
+}
+
+/************************************************//*# sourceMappingURL=styles.css.map */
